@@ -12,19 +12,19 @@
     - name: Setting up provider values
       set_fact:
        provider:
-        user: "admin"
-        password: "MOTO1RAD"
-        server: "192.168.1.203"
+        user: "{{ansible_user}}"
+        password: "{{ansible_ssh_pass}}"
+        server: "{{private_ip}}"
         server_port: "8443"
         validate_certs: "False"
 
     - name: Setting up provider values
       set_fact:
        provider:
-        user: "admin"
-        password: "MOTO1RAD"
-        server: "192.168.1.203"
-        server_port: "443"
+        user: "{{ansible_user}}"
+        password: "{{ansible_ssh_pass}}"
+        server: "{{ansible_host}}"
+        server_port: "{{server_port}}"
         validate_certs: "False"
       when: server_port is defined
 
